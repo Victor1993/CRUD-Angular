@@ -1,0 +1,61 @@
+.contenedor-formulario {
+    background-color: #FFFFFF;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    margin-top: 24px;
+
+    .titulo-formulario {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        text-align: center;
+    }
+
+    .contenido-formulario {
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-bottom: 8px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .margen {
+        margin-top: -16px;
+    }
+
+    .espaciadoBotones {
+        margin-right: 16px;
+    }
+
+    .ancho {
+        width: 150px;
+    }
+
+    .btn-guardar {
+        text-align: right;
+        overflow: hidden;
+    }
+
+    .ocultar {
+        display: none;
+        float: right;
+    }
+    
+    .mostrar {    
+        display: block;
+        float: right;
+    }
+}
+
+.contenedor-lista {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 16px;
+
+    .titulo-listado {
+        padding-bottom: 16px;
+        text-align: center;
+    }
+}
+

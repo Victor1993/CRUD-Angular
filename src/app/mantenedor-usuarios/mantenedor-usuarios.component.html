@@ -1,0 +1,196 @@
+<!-- FORMULARIO INGRESO DE DATOS -->
+<div class="contenedor-formulario">
+    <form [formGroup]="registerForm">
+        <div class="titulo-formulario">
+            <h4>Complete el fomulario para agregar un nuevo usuario</h4>
+        </div>
+        <div class="contenido-formulario">
+            <!-- NOMBRE -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text ancho" id="">
+                        <fa-icon [icon]="iconoNombre"></fa-icon>&nbsp;&nbsp;Nombre
+                    </span>
+                </div>
+                <input type="text" formControlName="nombre" class="form-control" placeholder="Victor Sandoval"
+                    [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" [(ngModel)]="nombreInput">
+            </div>
+            <div *ngIf=" registerForm.controls['nombre'].invalid
+                && (registerForm.controls['nombre'].dirty ||
+                registerForm.controls['nombre'].touched)" class="alert alert-danger margen">
+                <div [hidden]="!f.nombre.errors?.pattern">
+                    Carácter no permitido!
+                </div>
+                <div [hidden]="!f.nombre.errors?.minlength">
+                    La cantidad mínima de carácteres es 3!
+                </div>
+                <div [hidden]="!f.nombre.errors?.required">
+                    Debe ingresar el nombre
+                </div>
+            </div>
+
+            <!-- CORREO -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text ancho" id="">
+                        <fa-icon [icon]="iconoCorreo"></fa-icon>&nbsp;&nbsp;Correo
+                    </span>
+                </div>
+                <input type="text" formControlName="correo" class="form-control" placeholder="minombre@gmail.com"
+                    [ngClass]="{ 'is-invalid': submitted && f.correo.errors }"  [(ngModel)]="correoInput">
+            </div>
+            <div *ngIf=" registerForm.controls['correo'].invalid
+                && (registerForm.controls['correo'].dirty ||
+                registerForm.controls['correo'].touched)" class="alert alert-danger margen">
+                <div [hidden]="!f.correo.errors?.pattern">
+                    ¡El correo ingresado no es válido!
+                </div>
+                <div [hidden]="!f.correo.errors?.required">
+                    Debe ingresar el correo electrónico
+                </div>
+            </div>
+
+            <!-- CLAVE -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text ancho" id="">
+                        <fa-icon [icon]="iconoClave"></fa-icon>&nbsp;&nbsp;Contraseña
+                    </span>
+                </div>
+                <input type="text" formControlName="clave" class="form-control" placeholder="hunter2"
+                    [ngClass]="{ 'is-invalid': submitted && f.clave.errors }" [(ngModel)]="claveInput">
+            </div>
+            <div *ngIf=" registerForm.controls['clave'].invalid
+                && (registerForm.controls['clave'].dirty ||
+                registerForm.controls['clave'].touched)" class="alert alert-danger margen">
+                <div [hidden]="!f.clave.errors?.required">
+                    Debe ingresar la contraseña
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <!-- NUMERO TELEFONO -->
+                <div class="input-group-prepend">
+                    <span class="input-group-text ancho" id="">
+                        <fa-icon [icon]="iconoTelefono"></fa-icon>&nbsp;&nbsp;Teléfono
+                    </span>
+                </div>
+                <input type="text" formControlName="numTelefono" class="form-control" placeholder="12345678"
+                    [ngClass]="{ 'is-invalid': submitted && f.numTelefono.errors }" [(ngModel)]="numTelefonoInput">&nbsp;&nbsp;
+
+                <!-- CODIGO PAIS -->
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">
+                        <fa-icon [icon]="iconoCodPais"></fa-icon>&nbsp;&nbsp;Código País
+                    </span>
+                </div>
+                <input type="text" formControlName="codPais" class="form-control" placeholder="56"
+                    [ngClass]="{ 'is-invalid': submitted && f.codPais.errors }" [(ngModel)]="codPaisInput">&nbsp;&nbsp;
+
+                <!-- CODIGO CIUDAD -->
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">
+                        <fa-icon [icon]="iconoCodCiudad"></fa-icon>&nbsp;&nbsp;Código Ciudad
+                    </span>
+                </div>
+                <input type="text" formControlName="codCiudad" class="form-control" placeholder="9"
+                    [ngClass]="{ 'is-invalid': submitted && f.codCiudad.errors }" [(ngModel)]="codCiudadInput">
+            </div>
+
+            <!-- NUMERO TELEFONO MENSAJES DE ERROR -->
+            <div *ngIf=" registerForm.controls['numTelefono'].invalid
+                && (registerForm.controls['numTelefono'].dirty ||
+                registerForm.controls['numTelefono'].touched)" class="alert alert-danger margen">
+                <div [hidden]="!f.numTelefono.errors?.pattern">
+                    Sólo pude ingresar números
+                </div>
+                <div [hidden]="!f.numTelefono.errors?.minlength">
+                    ¡La cantidad mínima de números es 7!
+                </div>
+                <div [hidden]="!f.numTelefono.errors?.maxlength">
+                    ¡La cantidad máxima de números es 8!
+                </div>
+                <div [hidden]="!f.numTelefono.errors?.required">
+                    Debe ingresar el número de teléfono
+                </div>
+            </div>
+
+            <!-- CODIGO PAIS MENSAJES DE ERROR -->
+            <div *ngIf=" registerForm.controls['codPais'].invalid
+                    && (registerForm.controls['codPais'].dirty ||
+                    registerForm.controls['codPais'].touched)" class="alert alert-danger margen">
+                <div [hidden]="!f.codPais.errors?.pattern">
+                    Sólo pude ingresar números
+                </div>
+                <div [hidden]="!f.codPais.errors?.minlength">
+                    ¡La cantidad minima de números es 2!
+                </div>
+                <div [hidden]="!f.codPais.errors?.maxlength">
+                    ¡La cantidad máxima de números es 2!
+                </div>
+                <div [hidden]="!f.codPais.errors?.required">
+                    Debe ingresar el código del país
+                </div>
+            </div>
+
+            <!-- CODIGO CIUDAD MENSAJES DE ERROR -->
+            <div *ngIf=" registerForm.controls['codCiudad'].invalid
+                && (registerForm.controls['codCiudad'].dirty ||
+                registerForm.controls['codCiudad'].touched)" class="alert alert-danger margen">
+                <div [hidden]="!f.codCiudad.errors?.pattern">
+                    Sólo pude ingresar números
+                </div>
+                <div [hidden]="!f.codCiudad.errors?.minlength">
+                    ¡La cantidad minima de números es 1!
+                </div>
+                <div [hidden]="!f.codCiudad.errors?.maxlength">
+                    ¡La cantidad máxima de números es 2!
+                </div>
+                <div [hidden]="!f.codCiudad.errors?.required">
+                    Debe ingresar el código de ciudad
+                </div>
+            </div>
+
+            <div class="form-group btn-guardar">
+                <button type="submit" (click)="accion('agregar')" [ngClass]="_mostrarBotonAgregar">Guardar</button>
+                <button type="submit" (click)="accion('modificar')" [ngClass]="_mostrarBotonModidicar">Guardar</button>
+                <button type="submit" (click)="accion('cancelar')" [ngClass]="_mostrarBotonCancelar">Cancelar</button>                
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- LISTA DE USUARIOS REGISTRADOS -->
+<div class="contenedor-lista">
+    <div class="titulo-listado">
+        <h4>Listado de usuarios registrados</h4>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Contraseña</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{ usuario.name }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.password }}</td>
+                    <td>{{ usuario.phone.contrycode + usuario.phone.citycode + usuario.phone.number }}</td>
+                    <td>
+                        <fa-icon [icon]="iconoEditarUsuario" (click)="cargarDatosEnFormulario(i)" title="Modificar datos"></fa-icon>
+                        &nbsp;&nbsp;
+                        <fa-icon [icon]="iconoEliminarUsuario" (click)="eliminarUsuario(i)" title="Eliminar usuario"></fa-icon>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
