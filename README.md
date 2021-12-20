@@ -7,4 +7,4 @@ Ejecute el comando 'npm install', para que node instale la carpeta 'node_modules
 Una vez descargadas las dependencias ejecute el comando 'ng serve -o' para "levantar" proyecto.
 
 # DEMO
-Se levantó un demo de la aplicación en Firebase, al que puedes acceder en este [enlace](https://wv-crud-angular.web.app/)
+Se levantó un demo de la aplicación en Firebase, al que puedes acceder en este [enlace](https://wv-crud-angular.firebaseapp.com/)
